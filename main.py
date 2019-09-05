@@ -9,13 +9,21 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import os
+from selenium import webdriver
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+driver = webdriver.Chrome('C:\Users\DUSK\Desktop\chrome\chromedriver')
+driver.implicitly_wait(3)
+driver.get('https://google.com')
+
+sojun = requests.get('http://sillok.history.go.kr/id/kaa_000001')
+requests.find_el
 # HTTP GET Request
 req = requests.get('http://sillok.history.go.kr/popup/print.do?id=kaa_10107017_002&gubun=chn')
 
+#//*[@id="cont_area"]/div[1]/ul[2]/li[2]/a
 # HTML 소스 가져오기
 html = req.text
 
